@@ -1,0 +1,21 @@
+@import './assets/scss/Components/Header/header';
+@import './assets/scss/Pages/home';
+@import './assets/scss/Components/Footer/footer';
+@import './assets/scss/Pages/jobsearching';
+@import './assets/scss/Pages/_jobbymenu';
+@import './assets/scss/Pages/_jobdetail';
+@import './assets/scss/Pages/_login';
+@import './assets/scss/Pages/_signup';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    max-width: 1365px !important;
+    margin: 0 auto;
+    padding: 0 32px;
+}

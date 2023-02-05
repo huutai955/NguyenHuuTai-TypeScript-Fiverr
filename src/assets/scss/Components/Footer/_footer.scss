@@ -1,0 +1,88 @@
+.footer {
+    background-color: #e7e7e7;
+    padding-top: 64px;
+    padding-bottom: 24px;
+    .container {
+        .footer__top {
+            display: flex;
+        .footer__content {
+            width: 20%;
+            padding: 0 16px;
+            padding-bottom: 40px;
+   
+            h2 {
+                color: #404145;
+                font-size: 18px;
+                font-weight: 700;
+                padding-bottom: 18px;
+            }
+            ul {
+                padding: 0;
+                margin: 0;
+                li {
+                    list-style: none;
+                    padding-bottom: 16px;
+                    a {
+                        font-size: 19px;
+                        color: #74767e;
+                        text-decoration: none;
+                        .footer__blurtext {
+                            margin: 0;
+                            font-size: 15x;
+                            color: #b5b6ba;
+                        }
+                    }
+                }
+            }
+        }
+        }
+        
+        .footer__bottom {
+            display: flex;
+            justify-content: space-between;
+            .first {
+                display: flex;
+                align-items: center;
+                img {
+                    width: 80px;
+                }
+                span {
+                  font-size: 16px;
+                  color: #b5b6ba;  
+                }
+            }
+
+            .second {
+                display: flex;
+                align-items: center;
+                .socialicons {
+                    ul {
+                        display: flex;
+                        padding: 0;
+                        margin: 0;
+                        li {
+                            list-style: none; 
+                            margin-right: 24px;
+                            i {
+                                color: #74767e;
+                            }
+                        }
+                    }
+                }
+                .settings {
+                    display: flex;
+                    .language,.money {
+                        padding: 8px 12px;
+                        font-size: 14px;
+                        color: #74767e;
+                    }
+                }
+                .peopleicons {
+                    padding: 5px;
+                    border: 1px solid #ccc;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,363 @@
+.jobdetail {
+    padding: 80px 0;
+
+    .container {
+        position: relative;
+
+        .jobdetail__list {
+            display: flex;
+
+            a {
+                text-decoration: none;
+                margin-right: 10px;
+                font-weight: 500;
+                font-size: 14px;
+            }
+        }
+
+        .jobdetail_content {
+            .row {
+                .col-8 {
+                    h2 {
+                        font-size: 26px;
+                        color: #404145;
+                        margin-bottom: 30px;
+                    }
+
+                    .user {
+                        display: flex;
+                        align-items: center;
+
+                        .avatar {
+                            width: 50px;
+                            margin-right: 13px;
+
+                            img {
+                                width: 100%;
+                                border-radius: 50%;
+                            }
+                        }
+
+                        span {
+                            font-weight: 500;
+                            font-size: 16px;
+                        }
+
+                        .rating {
+                            display: flex;
+                            align-items: center;
+
+                            span {}
+                        }
+
+                        p {
+                            margin: 0;
+                        }
+                    }
+
+                    .jobdetail__img {
+                        background-color: #e9e9e9;
+                        padding: 30px 0;
+                        margin: 50px 0;
+
+                        img {
+                            width: 80%;
+                        }
+                    }
+
+                    p {
+                        font-weight: 500;
+                        font-size: 16px;
+                        color: #62646a;
+                    }
+
+                    ul {
+                        li {
+                            color: #62646a;
+                        }
+                    }
+
+                    .jobdetail__skill {
+                        padding: 20px 0;
+                        border-top: 1px solid #b5b6ba;
+
+                        .row {
+                            .col-4 {
+                                padding: 0;
+                                margin-left: 30px;
+
+                                .skill__first,
+                                .skill__second {
+                                    h2 {
+                                        margin: 0;
+                                        color: #b5b6ba;
+                                        font-size: 18px;
+                                        font-weight: 600;
+                                    }
+
+                                    ul {
+                                        padding: 0;
+                                        margin: 0;
+
+                                        li {}
+                                    }
+                                }
+                            }
+                        }
+
+
+                    }
+
+                    .abouttheseller {
+                        h2 {}
+
+                        .abouttheseller__content {
+                            display: flex;
+
+                            .img {
+                                width: 100px;
+                                margin-right: 15px;
+
+                                img {
+                                    width: 100%;
+                                    border-radius: 50%;
+                                }
+                            }
+
+                            .infor {
+                                .top {
+                                    display: flex;
+                                    align-items: center;
+                                    margin-bottom: 10px;
+
+                                    h4 {
+                                        font-size: 16px;
+                                        margin-bottom: 0;
+                                        margin-right: 15px;
+                                    }
+
+                                    .status {
+                                        padding: 0 12px;
+                                        border: 1px solid #1dbf73;
+                                        border-radius: 20px;
+                                        text-align: center;
+
+                                        span {
+                                            font-size: 13px;
+                                            color: #1dbf73;
+                                        }
+                                    }
+                                }
+
+                                .bottom {
+                                    align-items: center;
+
+                                    h5 {
+                                        margin: 0;
+                                        margin-left: 10px;
+                                    }
+                                }
+
+                                button {
+                                    border: 2px solid #1dbf73;
+                                    border-radius: 8px;
+                                    color: #1dbf73;
+                                    font-weight: 600;
+                                    margin-top: 25px;
+                                    padding: 6px 24px;
+                                    transition: 0.5s;
+
+                                    &:hover {
+                                        background-color: #1dbf73;
+                                        color: #fff;
+                                    }
+
+                                }
+                            }
+
+
+                        }
+
+                    }
+
+                    .inforseller {
+                        border: 1px solid #e4e5e7;
+                        border-radius: 5px;
+                        padding: 24px;
+                        margin-top: 25px;
+
+                        .row {
+                            padding-bottom: 20px;
+                            border-bottom: 1px solid #e4e5e7;
+
+                            .col-6 {
+                                p {
+                                    color: #62646a;
+                                    font-size: 17px;
+                                    font-weight: 400;
+                                }
+
+                                span {
+                                    color: #000000;
+                                    font-size: 17px;
+                                    font-weight: 700;
+                                }
+                            }
+                        }
+
+                        p {
+                            color: #62646a;
+                            font-size: 17px;
+                            font-weight: 500;
+                            padding-block: 8px;
+                            padding-top: 16px;
+                        }
+                    }
+
+                    .reviews__stars {
+                        display: flex;
+
+                        .css-frv3qg-MuiSlider-thumb {
+                            display: none;
+                        }
+
+                        .first {
+                            width: 50%;
+
+                            .review__rating {
+                                display: flex;
+                                align-items: center;
+
+                                h4 {
+                                    width: 15%;
+                                    color: #446ee7;
+                                    font-size: 16px;
+                                    margin: 0;
+                                }
+
+                                .MuiSlider-root {
+                                    width: 75%;
+                                }
+
+                                span {
+                                    text-align: center;
+                                    width: 10%;
+                                }
+                            }
+                        }
+
+                        .second {
+                            width: 50%;
+                            padding-left: 50px;
+
+                            ul {
+                                margin: 0;
+                                padding: 0;
+
+                                li {
+                                    list-style: none;
+                                    margin-bottom: 7px;
+
+                                    span {
+                                        font-weight: 400;
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+
+                    .comment__container {
+                        padding-top: 60px 0;
+
+                        .comment {
+                            margin-bottom: 50px;
+
+                            .comment__avatar {
+                                align-items: center;
+
+                                h5 {
+                                    margin: 0;
+                                }
+                            }
+
+                            .comment__content {
+                                p {
+                                    margin: 0;
+                                    margin-top: 10px;
+                                    margin-left: 60px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .col-4 {
+                    position: sticky;
+                    top: 25px;
+                    right: 0;
+                    padding: 0;
+                    left: 0;
+                    max-width: 410px;
+                    max-height: 620px;
+                    border-radius: 5px;
+                    border: 1px solid #ccc;
+
+                    .boxdetail {
+                        height: 100%;
+
+                        .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+                            width: calc(100%/3);
+                            background-color: #ccc;
+                            font-size: 16px;
+                            padding: 24px 16px;
+                            border: 0.5px solid #ccc;
+                        }
+
+                        .Mui-selected {
+                            color: #1dbf73;
+                            background-color: #fafafa;
+                            transition: 0.7s;
+                        }
+
+                        .css-1aquho2-MuiTabs-indicator {
+                            color: #1dbf73;
+                            background-color: #1dbf73;
+                        }
+
+                        .css-1q2h7u5 {}
+
+                        .tabcol {
+                            height: 89%;
+
+                            ul {
+                                margin: 0;
+                                padding: 0;
+
+                                li {
+                                    list-style: none;
+
+                                    span {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.css-uii7v5 {
+    padding: 10px !important;
+    button {
+        color: rgb(25, 118, 210);
+        font-size: 15px;
+        font-weight: 500;
+        &:hover {
+            color: rgb(25, 118, 210);
+            background-color: rgb(214 235 255);
+        }
+    }
+}

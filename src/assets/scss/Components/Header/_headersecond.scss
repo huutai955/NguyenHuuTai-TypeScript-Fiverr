@@ -1,0 +1,180 @@
+.headersecond {
+    background-color: #fff;
+
+    .container {
+        align-items: center;
+        justify-content: space-between;
+
+        .header__first {
+            display: flex;
+
+            img {
+                width: 100px;
+                height: auto;
+            }
+
+            span {
+                color: #fff;
+                font-size: 20px;
+            }
+
+            form {
+                transition: 0.7s;
+                margin-left: 30px;
+                display: flex;
+
+                .group__input {
+                    input {
+                        border-radius: 2px 0 0 2px;
+                        padding: 10px;
+
+                        &:focus {
+                            border-color: #000;
+                            box-shadow: none !important;
+                        }
+                    }
+                }
+
+                .group__button {
+                    button {
+                        background-color: #222325;
+                        border: none;
+                        border-radius: 0 4px 4px 0;
+                        padding: 11px;
+                        transition: 0.7s;
+
+                        &:hover {
+                            background-color: #404145;
+                        }
+
+
+                    }
+                }
+            }
+        }
+
+        .header__second {
+            ul {
+                display: flex;
+                align-items: center;
+                padding: 0;
+                margin: 0;
+
+                li {
+                    list-style: none;
+                    padding: 20px;
+
+                    a {
+                        text-decoration: none;
+                        font-size: 18px;
+                        font-weight: 500;
+                        color: #000;
+                        background-color: rgba(0, 0, 0, 0);
+                    }
+
+                    .btn-signup {
+                        text-decoration: none;
+                        background-color: rgba(0, 0, 0, 0);
+                        border: 1px solid #1dbf73;
+                        padding: 7px 20px;
+                        border-radius: 5px;
+                        transition: 0.7s;
+                        color: #000;
+                        font-weight: 500;
+
+                        &:hover {
+                            background-color: #1dbf73;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.homeheader {
+    position: relative;
+    .menusecond {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        .container {
+            ul {
+                display: flex;
+                justify-content: center;
+                margin-right: 20px;
+                margin-bottom: 0;
+                cursor: pointer;
+    
+                li {
+                    list-style: none;
+                    margin-right: 20px;
+                    padding: 10px 0;
+                    position: relative;
+                    padding-top: 15px;
+                    h2 {
+                        font-size: 18px;
+                        font-weight: 500;
+                        margin: 0;
+                        padding-bottom: 4px;
+                        border-bottom: 3px solid #fff;
+                    }
+    
+                    &:hover h2 {
+                        border-bottom: 3px solid #1dbf73;
+                    }
+    
+                    &:hover .group {
+                        display: flex;
+                        // animation: rotate 0.5s normal;
+                    }
+    
+                    .group {
+                        display: none;
+                        position: absolute;
+                        min-height: 250px;
+                        margin: 0;
+                        padding: 0;
+                        background-color: #fff;
+                        transition: 0.5s;
+                        box-shadow: 0px -2px 9px 0px rgba(0, 0, 0, 0.35);
+                        top: 55px;
+    
+    
+                        .parentgroup {
+                            width: 200px;
+                            list-style: none;
+                            padding: 10px;
+    
+                            .groupname {
+                                text-decoration: none;
+                                color: #000;
+                                font-weight: 600;
+                                font-size: 18px;
+                                margin-bottom: 15px;
+    
+                                ul {
+                                    padding: 0;
+                                    margin: 0;
+                                    flex-direction: column;
+    
+                                    .childgroup {
+                                        color: #7f7f7f;
+                                        padding: 0;
+                                        margin: 0;
+                                        margin-top: 20px;
+                                        font-size: 17px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
+
+}
+
