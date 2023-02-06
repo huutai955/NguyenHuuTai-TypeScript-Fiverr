@@ -114,7 +114,7 @@ export const signupAPI = async (infor: SignUpForm) => {
 }
 
 
-export const signinAPI = (infor: UserInfor) => {
+export const signinAPI = (infor: SignInForm) => {
   return async (dispatch: AppDispatch) => {
     try {
       const result: any = await http.post('api/auth/signin', infor);
