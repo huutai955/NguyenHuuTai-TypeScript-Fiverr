@@ -1,0 +1,146 @@
+.userinfor {
+    .container {
+        .row {
+            @media screen and (max-width: 920px) {
+                flex-direction: column;
+             }
+            .col-4 {
+                @media screen and (max-width: 1125px) {
+                    width: 100%;
+                 }
+                .top {
+                    padding: 30px;
+                    background-color: #fff;
+                    border: 1px solid #e4e5e7;
+                    border-radius: 8px;
+                    box-shadow: 0 0 8px rgb(0 0 0 / 10%);
+                    padding: 30px;
+                    @media screen and (max-width: 1125px) {
+                        width: 100%;
+                     }
+
+                    .row {
+                        border-top: 1px solid #e4e5e7;
+                        @media screen and (max-width: 1125px) {
+                            padding: 10px 0 !important;
+                         }
+                        .col-12 {
+                            div {
+                                display: flex;
+                                align-items: center;
+
+                                h2 {
+                                    color: #74767e;
+                                    font-size: 16px;
+                                    font-weight: 500;
+                                }
+
+                            }
+
+                            p {
+                                color: #1e1e20;
+                                font-size: 16px;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+
+                .bottom {
+                    background-color: #fff;
+                    border: 1px solid #e4e5e7;
+                    border-radius: 8px;
+                    box-shadow: 0 0 8px rgb(0 0 0 / 10%);
+                    margin-top: 24px;
+                    padding: 16px 30px;
+
+                    .skills,
+                    .certification {
+                        padding: 24px 0;
+
+                        .d-flex {
+                            h2 {
+                                color: #404145;
+                                font-size: 18px;
+                                font-weight: 700;
+                            }
+                        }
+
+                        p {
+                            color: #74767e;
+                            display: inline-block;
+                            font-weight: 600;
+                            margin-top: 12px;
+                        }
+
+                        form {
+                            .btncancel {
+                                background-color: #fff;
+                                border: 1px solid #b5b6ba;
+                                color: #74767e;
+                                font-size: 16px;
+                                font-weight: 700;
+                                margin-top: 16px;
+                                padding: 12px 0;
+                            }
+
+                            .btnadd {
+                                background-color: #1DBF73;
+                                border: 1px solid #ccc;
+                                color: #74767e;
+                                font-size: 16px;
+                                font-weight: 700;
+                                margin-top: 16px;
+                                padding: 12px 0;
+                            }
+                        }
+                    }
+
+                    .skills {
+                        border-bottom: 1px solid #e4e5e7;
+                    }
+                }
+            }
+
+            .col-8 {
+                @media screen and (max-width: 920px) {
+                    margin-top: 20px;
+                    width: 100%;
+                 }
+                .scrollbar {
+                    background-color: #fff;
+                    border: 1px solid #e4e5e7;
+                    border-radius: 8px;
+                    box-shadow: 0 0 8px rgb(0 0 0 / 10%);
+                    margin-top: 24px;
+                    overflow-y: scroll;
+
+                    .row {
+                        border: 1px solid #e4e5e7;
+
+                        .col-8 {
+
+                            h2 {
+                                color: #404145;
+                                font-size: 20px;
+                                font-weight: 700;
+                            }
+
+                            p {
+                                -webkit-line-clamp: 4;
+                                line-clamp: 4;
+                                -webkit-box-orient: vertical;
+                                color: #62646a;
+                                display: -webkit-box;
+                                font-size: 16px;
+                                font-weight: 500;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
