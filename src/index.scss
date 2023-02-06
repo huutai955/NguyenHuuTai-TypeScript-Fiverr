@@ -1,11 +1,13 @@
 @import './assets/scss/Components/Header/header';
 @import './assets/scss/Pages/home';
 @import './assets/scss/Components/Footer/footer';
+@import './assets/scss/Components/ConfirmModal/_confirmmodal';
 @import './assets/scss/Pages/jobsearching';
 @import './assets/scss/Pages/_jobbymenu';
 @import './assets/scss/Pages/_jobdetail';
 @import './assets/scss/Pages/_login';
 @import './assets/scss/Pages/_signup';
+@import './assets/scss/Pages/_userinfor';
 
 * {
     padding: 0;

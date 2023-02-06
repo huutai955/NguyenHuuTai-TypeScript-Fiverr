@@ -1,15 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
-import { AppDispatch, RootState } from '../../redux/store';
-import { useDispatch, useSelector } from 'react-redux';
-import { setModalConfirm } from '../../redux/reducers/jobReducer';
-import dayjs, { Dayjs } from 'dayjs';
-import { formatDate } from '../../util/config';
-import { rentTheJobAPI } from '../../redux/reducers/typeOfJobReducer';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { Scrollbars } from 'react-custom-scrollbars';
+
 
 
 
@@ -37,17 +28,7 @@ export default function App({ }: Props) {
 
   return (
     <>
-      <div className="container">
-        <button className="button" onClick={scrollToElement}>Scroll down</button>
-        <div style={{height: 3000}}>
-          <p>asdsa</p>
-        </div>
-        <div className="content">
-          <div ref={elementRef}>Element</div>
-        </div>
-      </div>
-
-
+        <img style={{width: '100%', height: 900, objectFit: 'cover'}} src='https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/2413b8415dda9dbd7756d02cb87cd4b1-1599595203021/bg-hero-2-1792-x2.png' alt="" />
     </>
   )
 }

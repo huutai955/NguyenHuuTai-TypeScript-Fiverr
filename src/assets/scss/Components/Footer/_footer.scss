@@ -5,11 +5,20 @@
     .container {
         .footer__top {
             display: flex;
+            flex-wrap: wrap;
         .footer__content {
             width: 20%;
             padding: 0 16px;
             padding-bottom: 40px;
-   
+            @media screen and (max-width: 1024px) {
+                width: calc(100%/4) !important;
+            }
+            @media screen and (max-width: 1024px) {
+                width: calc(100%/3) !important;
+            }
+            @media screen and (max-width: 650px) {
+                display: none;
+            }
             h2 {
                 color: #404145;
                 font-size: 18px;
@@ -35,14 +44,49 @@
                 }
             }
         }
+
+        .accordionMobile { 
+            display: none;
+            @media screen and (max-width: 650px) {
+                display: block;
+            }
+            .collapseFooterMobile  {
+                background-color: #e7e7e7;
+                ul {
+                    margin: 0;
+                    padding: 0;
+                    li {
+                        list-style: none;
+                        padding-bottom: 16px;
+                        a {
+                            color: #74767e;
+                            text-decoration: none;
+                            .footer__blurtext {
+                                margin: 0;
+                                font-size: 15x;
+                                color: #b5b6ba;
+                            }
+                        }
+                    }
+                }
+            }
+        }
         }
         
         .footer__bottom {
             display: flex;
             justify-content: space-between;
+            @media screen and (max-width: 850px) {
+                flex-direction: column;
+                align-items: center;
+            }
             .first {
                 display: flex;
                 align-items: center;
+                @media screen and (max-width: 500px) {
+                    flex-direction: column;
+
+                }
                 img {
                     width: 80px;
                 }
@@ -55,6 +99,9 @@
             .second {
                 display: flex;
                 align-items: center;
+                @media screen and (max-width: 500px) {
+                    flex-direction: column;
+                }
                 .socialicons {
                     ul {
                         display: flex;

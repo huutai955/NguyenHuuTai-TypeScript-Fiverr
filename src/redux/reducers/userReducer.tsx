@@ -25,27 +25,27 @@ export interface UserInfor {
   id: number;
   name: string;
   email: string;
-  password: string;
+  password?: string;
   phone: string;
   birthday: string;
-  avatar: string;
+  avatar?: string;
   gender: boolean;
   role: string;
   skill: string[];
   certification: string[];
-  bookingJob: any[];
+  bookingJob?: any[];
 }
 
 
 
 interface User {
-  userInfor: UserInfor | undefined,
+  userInfor: UserInfor,
   messageLogin: string
 }
 
 const initialState: User = {
-  userInfor: settings.getStorageJson(USER_PROFILE) || undefined,
-  messageLogin: settings.getStorageJson(MESSAGE_LOGIN) || ""
+  userInfor: settings.getStorageJson(USER_PROFILE),
+  messageLogin: settings.getStorageJson(MESSAGE_LOGIN) || "",
 }
 
 const userReducer = createSlice({
@@ -59,15 +59,33 @@ const userReducer = createSlice({
     },
     setLogOut: (state: User, action: PayloadAction<string>) => {
       state.messageLogin = action.payload
-      state.userInfor = undefined
+      state.userInfor = {
+        id: 0,
+        name: "string",
+        email: "string",
+        phone: "string",
+        birthday: "string",
+        gender: true,
+        role: "string",
+        skill: [
+        ],
+        certification: [
+        ],
+        password: "",
+        bookingJob: [],
+        avatar: ''
+      }
       localStorage.removeItem(USER_PROFILE)
       localStorage.removeItem(ACCESSTOKEN)
       localStorage.removeItem(MESSAGE_LOGIN)
     },
+    updateUserAction: (state: User, action: PayloadAction<UserInfor>) => {
+      state.userInfor = action.payload
+    },
   }
 });
 
-export const { setUserInfor, setLogOut } = userReducer.actions
+export const { updateUserAction, setUserInfor, setLogOut } = userReducer.actions
 
 export default userReducer.reducer
 
@@ -96,7 +114,7 @@ export const signupAPI = async (infor: SignUpForm) => {
 }
 
 
-export const signinAPI = (infor: SignInForm) => {
+export const signinAPI = (infor: UserInfor) => {
   return async (dispatch: AppDispatch) => {
     try {
       const result: any = await http.post('api/auth/signin', infor);
@@ -118,6 +136,35 @@ export const signinAPI = (infor: SignInForm) => {
         icon: 'error',
         confirmButtonText: 'OK'
       });
+    }
+  }
+}
+
+export const updateUserAPI = (infor: UserInfor, id: string | undefined) => {
+  return async (dispatch: AppDispatch) => {
+    try {
+      await http.put(`api/users/${id}`, infor);
+      const result: any = await http.get(`/api/users/${id}`);
+      const action = updateUserAction(result.data.content);
+      dispatch(action);
+      console.log(result);
+      const action2 = getUserInforAPI(id);
+      await dispatch(action2)
+    } catch (err) {
+      console.log(err);
+    }
+  }
+}
+
+export const getUserInforAPI = (id: string | undefined) => {
+  return async (dispatch: AppDispatch) => {
+    try {
+      const result: any = await http.get(`/api/users/${id}`);
+      const action = updateUserAction(result.data.content);
+      dispatch(action);
+      settings.setStorageJson(USER_PROFILE, result.data.content)
+    } catch (err) {
+      console.log(err);
     }
   }
 }

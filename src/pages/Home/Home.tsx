@@ -235,7 +235,32 @@ export default function Home({ }: Props) {
     slidesToShow: 5,
     slidesToScroll: 5,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 3,
+          infinite: true
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 650,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
 
@@ -266,26 +291,29 @@ export default function Home({ }: Props) {
   return (
     <div className="home">
       <div className="carousel">
-        <Swiper modules={[EffectFade]} effect="fade"
+        <Swiper modules={[EffectFade]} className="swiperCarousel" effect="fade"
           autoplay={{ delay: 3000 }}>
           <SwiperSlide >
-            <img style={{ width: '100%' }} src="https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/bb5958e41c91bb37f4afe2a318b71599-1599344049984/bg-hero-1-1792-x2.png" alt="" />
+            <img style={{ width: '100%', height: 700, objectFit: 'cover' }} src="https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/bb5958e41c91bb37f4afe2a318b71599-1599344049984/bg-hero-1-1792-x2.png" alt="" />
           </SwiperSlide>
           <SwiperSlide >
-            <img style={{ width: '100%' }} src="https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/2413b8415dda9dbd7756d02cb87cd4b1-1599595203021/bg-hero-2-1792-x2.png" alt="" />
+            <img style={{ width: '100%', height: 700, objectFit: 'cover' }} src="https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/2413b8415dda9dbd7756d02cb87cd4b1-1599595203021/bg-hero-2-1792-x2.png" alt="" />
           </SwiperSlide>
           <SwiperSlide>
-            <img style={{ width: '100%' }} src="https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/d14871e2d118f46db2c18ad882619ea8-1599835783974/bg-hero-3-1792-x2.png" alt="" />
+            <img style={{ width: '100%', height: 700, objectFit: 'cover' }} src="https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/d14871e2d118f46db2c18ad882619ea8-1599835783974/bg-hero-3-1792-x2.png" alt="" />
           </SwiperSlide>
           <SwiperSlide>
-            <img style={{ width: '100%' }} src="https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/93085acc959671e9e9e77f3ca8147f82-1599427734106/bg-hero-4-1792-x2.png" alt="" />
+            <img style={{ width: '100%', height: 700, objectFit: 'cover' }} src="https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/93085acc959671e9e9e77f3ca8147f82-1599427734106/bg-hero-4-1792-x2.png" alt="" />
           </SwiperSlide>
           <SwiperSlide>
-            <img style={{ width: '100%' }} src="https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/bb5958e41c91bb37f4afe2a318b71599-1599344049977/bg-hero-5-1792-x2.png" alt="" />
+            <img style={{ width: '100%', height: 700, objectFit: 'cover' }} src="https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/bb5958e41c91bb37f4afe2a318b71599-1599344049977/bg-hero-5-1792-x2.png" alt="" />
           </SwiperSlide>
         </Swiper>
+
+        <div className="carousel-responsive">
+        </div>
         <div className="container">
-          <div className="findingjob" style={{ maxWidth: '650px' }}>
+          <div className="findingjob">
             <div className="findingjob__content">
               <h2>Find the perfect <span style={{ fontFamily: 'cursive' }}>freelance</span> services for your business</h2>
               <form>
@@ -344,7 +372,7 @@ export default function Home({ }: Props) {
           >
             {dataTrusted.map((info, index) => {
               return <NavLink to={""} key={index}>
-                <img src={info.img} />
+                <img src={info.img}/>
                 <div className="content">
                   <p>{info.slogan}</p>
                   <h2>{info.name}</h2>
@@ -408,7 +436,7 @@ export default function Home({ }: Props) {
           <Slider {...settings}
           >
             {dataIntroduce.map((info, index) => {
-              return <div className='d-flex' key={index}>
+              return <div className='introduceParent d-flex' key={index}>
                 <div className="introduce__first">
                   <img src={info.image} alt="" />
                   <div className="introduce__playvideo">

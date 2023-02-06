@@ -12,10 +12,15 @@
 
         .header__first {
             display: flex;
+             svg {
+                @media screen and (max-width: 720px) {
+                    margin: 0 !important;
+                }
+             }
 
             img {
                 width: 100px;
-                height: auto;
+                height: 800px;
             }
 
             span {
@@ -27,11 +32,19 @@
                 transition: 0.7s;
                 margin-left: 30px;
                 display: flex;
+                @media screen and (max-width: 720px) {
+                    display: none;
+                  }
 
                 .group__input {
+                
+
                     input {
                         border-radius: 2px 0 0 2px;
                         padding: 10px;
+                        @media screen and (max-width: 1220px) {
+                            width: 400px !important;
+                        }
 
                         &:focus {
                             border-color: #000;
@@ -68,6 +81,9 @@
                 li {
                     list-style: none;
                     padding: 20px;
+                    @media screen and (max-width: 920px) {
+                        padding: 20px 0;
+                    }
 
                     a {
                         text-decoration: none;
@@ -93,6 +109,12 @@
                         }
                     }
                 }
+
+                .becomeaseller {
+                    @media screen and (max-width: 1220px) {
+                        display: none;
+                    }
+                }
             }
         }
 
@@ -108,12 +130,44 @@
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 10px 0;
+    @media screen and (max-width: 805px) {
+        padding: 20px;
+    }
+    @media screen and (max-width: 550px) {
+        display: none !important;
+    }
     .menu {
         .container {
             .slick-slider {
+             .slick-list {
+                max-width: 1280px;
+
+                .slick-slide {
+                    @media screen and (max-width: 930px) {
+                        font-size: 12px;
+                    }
+                }
+             }
+
+
                 button {
                     &::before {
                         color: #000;
+                    }
+                }
+
+                .slick-prev {
+                    
+                    left: 0;
+                    @media screen and (max-width: 888px) {
+                        display: none !important;
+                    }
+                }
+
+                .slick-next {
+                    right: 0;
+                    @media screen and (max-width: 888px) {
+                        display: none !important;
                     }
                 }
             }

@@ -19,6 +19,8 @@ import _, { cloneDeep } from 'lodash'
 import TagNavLink from '../TagNavLink/TagNavLink';
 import TagNavLinkParent from '../TagNavLink/TagNavLinkParent';
 import { setLogOut } from '../../redux/reducers/userReducer';
+import DrawerHeader from '../Drawer/DrawerHeader';
+import {ACCESSTOKEN, settings as settingUlti} from '../../util/config'
 
 
 
@@ -95,8 +97,17 @@ export default function Header({ }: Props) {
 
   const settings = {
     infinite: true,
-    slidesToShow: 7,
-    slidesToScroll: 1
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 705,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 2,
+        }
+      }
+    ]
   };
 
   const changeHeight = (e: Event) => {
@@ -166,13 +177,13 @@ export default function Header({ }: Props) {
           </div>
           <div className="header__second">
             <ul>
-              <li><NavLink to={""} style={{ color: color }}>Become a Seller</NavLink></li>
+              <li className="becomeaseller"><NavLink to={""} style={{ color: color }}>Become a Seller</NavLink></li>
               {messageLogin ? <li>
                 <HtmlTooltipSecond
                   title={
                     <React.Fragment>
                       <ul className='text-center m-0 p-0'>
-                      <li style={{listStyle: 'none'}}><NavLink to={""} >Information</NavLink></li>
+                      <li style={{listStyle: 'none'}}><NavLink to={`userinfor/${userInfor.id}`} >Information</NavLink></li>
                         <li style={{listStyle: 'none', cursor: 'pointer'}} onClick={()=> {
                           const action = setLogOut("");
                           dispatch(action);
@@ -186,8 +197,9 @@ export default function Header({ }: Props) {
               </li>
                 : <li><NavLink to={"/login"} style={{ color: color }}>Sign in</NavLink></li>
               }
-              <li><NavLink className={'btn-signup'} to={"/signup"} style={{ color: color, border: `1px solid ${color}` }}>
-                Join</NavLink></li>
+              {settingUlti.getStore(ACCESSTOKEN) ? <> </> 
+              : <li><NavLink className={'btn-signup'} to={"/signup"} style={{ color: color, border: `1px solid ${color}` }}>
+              Join</NavLink></li>}
             </ul>
           </div>
         </div>
@@ -222,6 +234,7 @@ export default function Header({ }: Props) {
           </div>
         </div>
       </HomeHeader>
+      <DrawerHeader />
     </>
   )
 }

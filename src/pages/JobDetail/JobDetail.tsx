@@ -26,6 +26,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { deepOrange, deepPurple } from '@mui/material/colors';
 import { formatDate } from '../../util/config'
+import TabContvent from '../../assets/scss/Components/TabConent/TabContvent'
 
 
 
@@ -149,7 +150,7 @@ export default function JobDetail({ }: Props) {
                                     <span style={{ marginRight: 10 }}>{job.tenNguoiTao}</span>
 
                                     <div className="rating">
-                                        <span style={{ fontWeight: 400, color: '#f2b525', borderRight: '1px solid #ccc', paddingRight: 10, marginRight: 15 }}>Top Rated Seller</span>
+                                        <span className='ratingseller' style={{ fontWeight: 400, color: '#f2b525', borderRight: '1px solid #ccc', paddingRight: 10, marginRight: 15 }}>Top Rated Seller</span>
                                         <Rating style={{ fontSize: 23 }} name="read-only" value={job.congViec.saoCongViec} readOnly />
                                         <span style={{ fontWeight: 400, color: '#ccc', marginLeft: 5 }}>({job.congViec.danhGia})</span>
                                     </div>
@@ -159,6 +160,8 @@ export default function JobDetail({ }: Props) {
                                 <div className="jobdetail__img text-center">
                                     <img src={job.congViec.hinhAnh} alt="" />
                                 </div>
+
+                                <TabContvent />
 
                                 <h2>About This Gig</h2>
                                 <p>{job.congViec.moTaNgan}</p>
@@ -456,103 +459,7 @@ export default function JobDetail({ }: Props) {
 
                             </div>
                             <div className="col-4">
-                                <Box sx={{ width: '100%', typography: 'body1' }} className="boxdetail">
-                                    <TabContext value={valueTab}>
-                                        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                                            <TabList onChange={handleChangeTab} aria-label="lab API tabs example">
-                                                <Tab label="Basic" value="1" style={{ textTransform: 'none' }} />
-                                                <Tab label="Standard" value="2" style={{ textTransform: 'none' }} />
-                                                <Tab label="Prenium" value="3" style={{ textTransform: 'none' }} />
-                                            </TabList>
-                                        </Box>
-                                        <TabPanel className='tabcol' value="1">
-                                            <div className='d-flex' style={{ justifyContent: 'space-between', alignItems: "center", marginBottom: 25 }}>
-                                                <h2 style={{ fontSize: 18, color: '#404145', textTransform: 'uppercase' }}>BASIC</h2>
-                                                <span>US$30</span>
-                                            </div>
-                                            <p style={{ color: '#62646a', fontSize: 14, fontWeight: 600 }}>{job.congViec.moTaNgan}</p>
-                                            <div className='d-flex mb-3' >
-                                                <div className='d-flex me-3' style={{ alignItems: 'center' }}>
-                                                    <AccessTimeIcon />
-                                                    <h4 style={{ color: '#62646a', fontSize: 14, fontWeight: 600, margin: 0 }}>1 Day Delivery</h4>
-                                                </div>
-                                                <div className='d-flex' style={{ alignItems: 'center' }}>
-                                                    <LoopIcon />
-                                                    <h4 style={{ color: '#62646a', fontSize: 14, fontWeight: 600, margin: 0 }}>3 Revisions</h4>
-                                                </div>
-                                            </div>
-                                            <ul>
-                                                <li style={{ color: '#62646a', fontWeight: 600, marginBottom: 5 }}><CheckIcon style={{ color: '#1dbf73', marginRight: 7 }} /><span>Up to 500 words</span></li>
-                                                <li style={{ color: '#62646a', fontWeight: 600, marginBottom: 5 }}><CheckIcon style={{ color: '#1dbf73', marginRight: 7 }} /><span>Topic research</span></li>
-                                                <li style={{ color: '#62646a', fontWeight: 600, marginBottom: 5 }}><CheckIcon style={{ color: '#1dbf73', marginRight: 7 }} /><span>SEO keywords</span></li>
-                                                <li style={{ color: '#b5b6ba', fontWeight: 600, marginBottom: 5 }}><CheckIcon style={{ marginRight: 7 }} /><span>SEO Keyword Research</span></li>
-                                                <li style={{ color: '#b5b6ba', fontWeight: 600, marginBottom: 5 }}><CheckIcon style={{ marginRight: 7 }} /><span>References & citations</span></li>
-                                                <li style={{ color: '#b5b6ba', fontWeight: 600, marginBottom: 5 }}><CheckIcon style={{ marginRight: 7 }} /><span>Data chart</span></li>
-                                            </ul>
-                                            {messageLogin ? <span style={{ display: 'flex', borderRadius: 10, cursor: 'pointer', textDecoration: 'none', justifyContent: 'center', padding: '12px 0', color: '#ffffff', marginTop: 18, backgroundColor: '#1dbf73' }} onClick={() => {
-                                                const action = setModalConfirm(true)
-                                                dispatch(action)
-                                            }}>Continue ({job.congViec.giaTien}$)</span> : <NavLink to={"/login"} style={{ display: 'flex', textDecoration: 'none', justifyContent: 'center', padding: '12px 0', color: '#ffffff', marginTop: 18, backgroundColor: '#1dbf73', borderRadius: 9 }}>Continue ({job.congViec.giaTien}$)</NavLink>}                                        </TabPanel>
-                                        <TabPanel className='tabcol' value="2">
-                                            <div className='d-flex' style={{ justifyContent: 'space-between', alignItems: "center", marginBottom: 25 }}>
-                                                <h2 style={{ fontSize: 18, color: '#404145', textTransform: 'uppercase' }}>BASIC</h2>
-                                                <span>US$30</span>
-                                            </div>
-                                            <p style={{ color: '#62646a', fontSize: 14, fontWeight: 600 }}>{job.congViec.moTaNgan}</p>
-                                            <div className='d-flex mb-3' >
-                                                <div className='d-flex me-3' style={{ alignItems: 'center' }}>
-                                                    <AccessTimeIcon />
-                                                    <h4 style={{ color: '#62646a', fontSize: 14, fontWeight: 600, margin: 0 }}>1 Day Delivery</h4>
-                                                </div>
-                                                <div className='d-flex' style={{ alignItems: 'center' }}>
-                                                    <LoopIcon />
-                                                    <h4 style={{ color: '#62646a', fontSize: 14, fontWeight: 600, margin: 0 }}>3 Revisions</h4>
-                                                </div>
-                                            </div>
-                                            <ul>
-                                                <li style={{ color: '#62646a', fontWeight: 600, marginBottom: 5 }}><CheckIcon style={{ color: '#1dbf73', marginRight: 7 }} /><span>Up to 500 words</span></li>
-                                                <li style={{ color: '#62646a', fontWeight: 600, marginBottom: 5 }}><CheckIcon style={{ color: '#1dbf73', marginRight: 7 }} /><span>Topic research</span></li>
-                                                <li style={{ color: '#62646a', fontWeight: 600, marginBottom: 5 }}><CheckIcon style={{ color: '#1dbf73', marginRight: 7 }} /><span>SEO keywords</span></li>
-                                                <li style={{ color: '#62646a', fontWeight: 600, marginBottom: 5 }}><CheckIcon style={{ color: '#1dbf73', marginRight: 7 }} /><span>SEO Keyword Research</span></li>
-                                                <li style={{ color: '#62646a', fontWeight: 600, marginBottom: 5 }}><CheckIcon style={{ color: '#1dbf73', marginRight: 7 }} /><span>References & citations</span></li>
-                                                <li style={{ color: '#b5b6ba', fontWeight: 600, marginBottom: 5 }}><CheckIcon style={{ marginRight: 7 }} /><span>Data chart</span></li>
-                                            </ul>
-                                            {messageLogin ? <span style={{ display: 'flex', borderRadius: 10, cursor: 'pointer', textDecoration: 'none', justifyContent: 'center', padding: '12px 0', color: '#ffffff', marginTop: 18, backgroundColor: '#1dbf73' }} onClick={() => {
-                                                const action = setModalConfirm(true)
-                                                dispatch(action)
-                                            }}>Continue ({job.congViec.giaTien}$)</span> : <NavLink to={"/login"} style={{ display: 'flex', textDecoration: 'none', justifyContent: 'center', padding: '12px 0', color: '#ffffff', marginTop: 18, backgroundColor: '#1dbf73', borderRadius: 9 }}>Continue ({job.congViec.giaTien}$)</NavLink>}                                        </TabPanel>
-                                        <TabPanel className='tabcol' value="3">
-                                            <div className='d-flex' style={{ justifyContent: 'space-between', alignItems: "center", marginBottom: 25 }}>
-                                                <h2 style={{ fontSize: 18, color: '#404145', textTransform: 'uppercase' }}>BASIC</h2>
-                                                <span>US$30</span>
-                                            </div>
-                                            <p style={{ color: '#62646a', fontSize: 14, fontWeight: 600 }}>{job.congViec.moTaNgan}</p>
-                                            <div className='d-flex mb-3' >
-                                                <div className='d-flex me-3' style={{ alignItems: 'center' }}>
-                                                    <AccessTimeIcon />
-                                                    <h4 style={{ color: '#62646a', fontSize: 14, fontWeight: 600, margin: 0 }}>1 Day Delivery</h4>
-                                                </div>
-                                                <div className='d-flex' style={{ alignItems: 'center' }}>
-                                                    <LoopIcon />
-                                                    <h4 style={{ color: '#62646a', fontSize: 14, fontWeight: 600, margin: 0 }}>3 Revisions</h4>
-                                                </div>
-                                            </div>
-                                            <ul>
-                                                <li style={{ color: '#62646a', fontWeight: 600, marginBottom: 5 }}><CheckIcon style={{ color: '#1dbf73', marginRight: 7 }} /><span>Up to 500 words</span></li>
-                                                <li style={{ color: '#62646a', fontWeight: 600, marginBottom: 5 }}><CheckIcon style={{ color: '#1dbf73', marginRight: 7 }} /><span>Topic research</span></li>
-                                                <li style={{ color: '#62646a', fontWeight: 600, marginBottom: 5 }}><CheckIcon style={{ color: '#1dbf73', marginRight: 7 }} /><span>SEO keywords</span></li>
-                                                <li style={{ color: '#62646a', fontWeight: 600, marginBottom: 5 }}><CheckIcon style={{ color: '#1dbf73', marginRight: 7 }} /><span>SEO Keyword Research</span></li>
-                                                <li style={{ color: '#62646a', fontWeight: 600, marginBottom: 5 }}><CheckIcon style={{ color: '#1dbf73', marginRight: 7 }} /><span>References & citations</span></li>
-                                                <li style={{ color: '#62646a', fontWeight: 600, marginBottom: 5 }}><CheckIcon style={{ color: '#1dbf73', marginRight: 7 }} /><span>Data chart</span></li>
-                                            </ul>
-
-                                            {messageLogin ? <span style={{ display: 'flex', borderRadius: 10, cursor: 'pointer', textDecoration: 'none', justifyContent: 'center', padding: '12px 0', color: '#ffffff', marginTop: 18, backgroundColor: '#1dbf73' }} onClick={() => {
-                                                const action = setModalConfirm(true)
-                                                dispatch(action)
-                                            }}>Continue ({job.congViec.giaTien}$)</span> : <NavLink to={"/login"} style={{ display: 'flex', textDecoration: 'none', justifyContent: 'center', padding: '12px 0', color: '#ffffff', marginTop: 18, backgroundColor: '#1dbf73', borderRadius: 9 }}>Continue ({job.congViec.giaTien}$)</NavLink>}
-                                        </TabPanel>
-                                    </TabContext>
-                                </Box>
+                                <TabContvent />
                             </div>
                         </div>
                     </div>

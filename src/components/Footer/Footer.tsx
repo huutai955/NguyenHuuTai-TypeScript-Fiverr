@@ -8,6 +8,11 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import LanguageIcon from '@mui/icons-material/Language';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 type Props = {}
 
@@ -182,6 +187,223 @@ export default function Footer({}: Props) {
             </li>
           </ul>
         </div>
+
+        {/* 1 */}
+        <Accordion className='accordionMobile'  style={{border: 'none', boxShadow: 'none', width: '100%'}}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+          style={{backgroundColor: '#e7e7e7', border: 'none'}}
+        >
+          <Typography>Categories</Typography>
+        </AccordionSummary>
+        <AccordionDetails className='collapseFooterMobile'>
+        <ul>
+            <li>
+              <NavLink to={""}>Graphics & Design</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Digital Marketing</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Writing & Translation</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Video & Animation</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Music & Audio</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Programming & Tech</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Data</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Business</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Lifestyle</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Photography</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Sitemap</NavLink>
+            </li>
+          </ul>
+        </AccordionDetails>
+      </Accordion>
+
+      {/* 2 */}
+      <Accordion className='accordionMobile'  style={{border: 'none', boxShadow: 'none', width: '100%'}}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+          style={{backgroundColor: '#e7e7e7', border: 'none'}}
+        >
+          <Typography>About</Typography>
+        </AccordionSummary>
+        <AccordionDetails className='collapseFooterMobile'>
+        <ul>
+            <li>
+              <NavLink to={""}>Careers</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Press & News</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Partnerships</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Privacy Policy</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Terms of Service</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Intellectual Property Claims</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Investor Relations</NavLink>
+            </li>
+          </ul>
+        </AccordionDetails>
+      </Accordion>
+
+      {/* 3 */}
+      <Accordion className='accordionMobile'  style={{border: 'none', boxShadow: 'none', width: '100%'}}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+          style={{backgroundColor: '#e7e7e7', border: 'none'}}
+        >
+          <Typography>Support</Typography>
+        </AccordionSummary>
+        <AccordionDetails className='collapseFooterMobile'>
+        <ul>
+            <li>
+              <NavLink to={""}>Help & Support</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Trust & Safety</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Selling on Fiverr</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Buying on Fiverr</NavLink>
+            </li>
+          </ul>
+        </AccordionDetails>
+      </Accordion>
+
+      {/* 4 */}
+      <Accordion className='accordionMobile'  style={{border: 'none', boxShadow: 'none', width: '100%'}}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+          style={{backgroundColor: '#e7e7e7', border: 'none'}}
+        >
+          <Typography>Community</Typography>
+        </AccordionSummary>
+        <AccordionDetails className='collapseFooterMobile'>
+        <ul>
+            <li>
+              <NavLink to={""}>Events</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Blog</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Forum</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Community Standards</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Podcast</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Influencers</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Affiliates</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Invite a Friend</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Become a Seller</NavLink>
+            </li>
+          </ul>
+        </AccordionDetails>
+      </Accordion>
+
+      {/* 5 */}
+      <Accordion className='accordionMobile'  style={{border: 'none', boxShadow: 'none', width: '100%'}}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+          style={{backgroundColor: '#e7e7e7', border: 'none'}}
+        >
+          <Typography>More From Fiverr</Typography>
+        </AccordionSummary>
+        <AccordionDetails className='collapseFooterMobile'>
+        <ul>
+            <li>
+              <NavLink to={""}>Fiverr Business</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Fiverr Pro</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Fiverr Studios</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Fiverr Logo Maker</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Fiverr Guides</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Get Inspired</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>Fiverr Select</NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>
+                ClearVoice
+                <p className='footer__blurtext'>Content Marketing</p>
+                </NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>
+              Fiverr Workspace
+              <p className='footer__blurtext'>Invoice Software</p>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>
+                Learn
+                <p className='footer__blurtext'>Online Courses</p>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={""}>
+              Working Not Working
+              </NavLink>
+            </li>
+          </ul>
+        </AccordionDetails>
+      </Accordion>
         </div>
         <div className="footer__bottom">
           <div className="first">

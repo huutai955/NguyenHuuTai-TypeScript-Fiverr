@@ -14,6 +14,7 @@ import Login from './pages/Login/Login'
 import SecondTemplate from './templates/SecondTemplate/SecondTemplate'
 import SignUp from './pages/SignUp/SignUp'
 import App from './pages/Demo/App'
+import UserInfo from './pages/User/UserInfo'
 
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
@@ -24,18 +25,21 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
                     <Route index element={<Home />} />
                     <Route path='demo' element={<App />} />
                     <Route path='search'>
-                            <Route path=':result' element={<JobSearching />}/>
+                        <Route path=':result' element={<JobSearching />} />
                     </Route>
                     <Route path='categories'>
-                            <Route path=':result' element={<JobByMenu />}/>
+                        <Route path=':result' element={<JobByMenu />} />
                     </Route>
                     <Route path='jobdetail'>
-                            <Route path=':result' element={<JobDetail />}/>
+                        <Route path=':result' element={<JobDetail />} />
                     </Route>
                 </Route>
                 <Route path='' element={<SecondTemplate />}>
                     <Route path='login' element={<Login />} />
                     <Route path='signup' element={<SignUp />} />
+                    <Route path='user'>
+                        <Route path=':result' element={<UserInfo />} />
+                    </Route>
                 </Route>
             </Routes>
         </BrowserRouter>

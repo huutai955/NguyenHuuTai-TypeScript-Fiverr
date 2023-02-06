@@ -83,6 +83,14 @@ export interface TypeOfJob {
   dsNhomChiTietLoai: DsNhomChiTietLoai[];
 }
 
+export interface JobWasRent {
+  id:        number;
+  ngayThue:  string;
+  hoanThanh: boolean;
+  congViec:  CongViec;
+}
+
+
 
 
 
@@ -95,7 +103,8 @@ interface JobState {
   arrJobByNameWithPagination: JobByNameWithPagination[],
   arrTypeOfJob: TypeOfJob[],
   jobDetail: JobDetail[],
-  modalConfirm: boolean
+  modalConfirm: boolean,
+  arrJobWasRented: JobWasRent[]
 }
 
 
@@ -111,7 +120,8 @@ const initialState: JobState = {
   totalRow: 0,
   arrTypeOfJob: [],
   jobDetail: [],
-  modalConfirm: false
+  modalConfirm: false,
+  arrJobWasRented: []
 }
 
 const jobReducer = createSlice({
@@ -142,10 +152,13 @@ const jobReducer = createSlice({
     setModalConfirm: (state: JobState, action: PayloadAction<boolean>) => {
       state.modalConfirm = action.payload;
     },
+    setJobWasRented: (state: JobState, action: PayloadAction<JobWasRent[]>) => {
+      state.arrJobWasRented = action.payload;
+    },
   }
 });
 
-export const {setModalConfirm,setJobDetail, setArrTypeOfJob, setJobMenu, setJobByName, setJobByDetail, setarrJobByNameWithPagination, setTotalRow } = jobReducer.actions
+export const {setJobWasRented,setModalConfirm,setJobDetail, setArrTypeOfJob, setJobMenu, setJobByName, setJobByDetail, setarrJobByNameWithPagination, setTotalRow } = jobReducer.actions
 
 export default jobReducer.reducer
 
@@ -193,6 +206,14 @@ export const getArrTypeOfJobAPI = (param: string | number | undefined) => {
     console.log(result)
     const action = setArrTypeOfJob(result.data.content);
     dispatch(action);
+  }
+}
+
+export const getArrJobWasRented = () => {
+  return async (dispatch: AppDispatch) => {
+    const result: any = await http.get(`api/thue-cong-viec/lay-danh-sach-da-thue`);
+    const action = setJobWasRented(result.data.content);
+    dispatch(action)
   }
 }
 

@@ -15,6 +15,7 @@ import _ from 'lodash'
 import TagNavLink from '../TagNavLink/TagNavLink';
 import TagNavLinkParent from '../TagNavLink/TagNavLinkParent';
 import { setLogOut } from '../../redux/reducers/userReducer';
+import {ACCESSTOKEN, settings as settingUlti} from '../../util/config'
 
 
 
@@ -78,7 +79,23 @@ export default function HeaderSecond({ }: Props) {
   const settings = {
     infinite: true,
     slidesToShow: 7,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1077,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 2,
+        }
+      },
+      {
+        breakpoint: 705,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 2,
+        }
+      }
+    ]
   };
 
  
@@ -132,7 +149,7 @@ export default function HeaderSecond({ }: Props) {
           </div>
           <div className="header__second">
             <ul>
-              <li><NavLink to={""}>Become a Seller</NavLink></li>
+              <li className='becomeaseller'><NavLink to={""}>Become a Seller</NavLink></li>
               {messageLogin ? <li>
                 <HtmlTooltipSecond
                   title={
@@ -151,8 +168,8 @@ export default function HeaderSecond({ }: Props) {
               </li>
                 : <li><NavLink to={"/login"}>Sign in</NavLink></li>
               }
-              <li><NavLink className={'btn-signup'} to={"/signup"}>
-                Join</NavLink></li>
+            {settingUlti.getStore(ACCESSTOKEN) ? <></> :   <li><NavLink className={'btn-signup'} to={"/signup"}>
+                Join</NavLink></li>}
             </ul>
           </div>
         </div>
