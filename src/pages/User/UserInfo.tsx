@@ -132,11 +132,11 @@ export default function UserInfo({ }: Props) {
 
             <div className="bottom">
               <div className="skills">
-                <div className='d-flex' style={{ alignItems: 'center', justifyContent: 'space-between' }}>
+                <div className='d-flex mb-2' style={{ alignItems: 'center', justifyContent: 'space-between' }}>
                   <h2 className='m-0'>Skills</h2>
                   <span onClick={() => {
                     setShowSkillForm(true)
-                  }}>Add New</span>
+                  }} style={{cursor: 'pointer'}}>Add New</span>
                 </div>
                 {userInfor?.skill ? <div className='d-flex' style={{ flexDirection: 'column' }}>
                   {userInfor?.skill.map((item, index) => {
@@ -183,11 +183,11 @@ export default function UserInfo({ }: Props) {
               </div>
 
               <div className="certification">
-                <div className='d-flex' style={{ alignItems: 'center', justifyContent: 'space-between' }}>
+                <div className='d-flex mb-2' style={{ alignItems: 'center', justifyContent: 'space-between' }}>
                   <h2 className='m-0'>Certification</h2>
                   <span onClick={() => {
                     setShowCertificationForm(true)
-                  }}>Add New</span>
+                  }} style={{cursor: 'pointer'}}>Add New</span>
                 </div>
                 {userInfor?.certification ? <div className='d-flex' style={{ flexDirection: 'column' }}>
                   {userInfor?.certification.map((item, index) => {
