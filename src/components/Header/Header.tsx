@@ -183,7 +183,7 @@ export default function Header({ }: Props) {
                   title={
                     <React.Fragment>
                       <ul className='text-center m-0 p-0'>
-                      <li style={{listStyle: 'none'}}><NavLink to={`userinfor/${userInfor.id}`} >Information</NavLink></li>
+                      <li style={{listStyle: 'none', marginBottom: '10px'}}><NavLink to={`user/${userInfor.id}`} style={{color: '#62646a', textDecoration: 'none'}}>Information</NavLink></li>
                         <li style={{listStyle: 'none', cursor: 'pointer'}} onClick={()=> {
                           const action = setLogOut("");
                           dispatch(action);
@@ -195,7 +195,7 @@ export default function Header({ }: Props) {
                   <NavLink to={""} style={{ color: color }}>Hi {userInfor?.name}</NavLink>
                 </HtmlTooltipSecond>
               </li>
-                : <li><NavLink to={"/login"} style={{ color: color }}>Sign in</NavLink></li>
+                : <li className='signin'><NavLink to={"/login"} style={{ color: color }}>Sign in</NavLink></li>
               }
               {settingUlti.getStore(ACCESSTOKEN) ? <> </> 
               : <li><NavLink className={'btn-signup'} to={"/signup"} style={{ color: color, border: `1px solid ${color}` }}>

@@ -118,6 +118,15 @@
             .row {
 
                 .col-3 {
+                    @media screen and (max-width: 1100px) {
+                       width: calc(100%/3);
+                    }
+                    @media screen and (max-width: 800px) {
+                        width: calc(100%/2);
+                     }
+                     @media screen and (max-width: 500px) {
+                        width: calc(100%/1);
+                     }
                     .item {
                         .img {
                             height: 250px;
@@ -131,6 +140,17 @@
                             h2 {
                                 color: #222325;
                                 font-size: 24px;
+                                @media screen and (max-width: 900px) {
+                                    font-size: 2vw;
+                                    margin-bottom: 5px;
+                                 }
+                                 @media screen and (max-width: 800px) {
+                                    font-size: 3vw;
+                                    margin-bottom: 5px;
+                                 }
+                                 @media screen and (max-width: 500px) {
+                                    font-size: 5vw;
+                                 }
                             }
 
                             ul {
@@ -144,6 +164,9 @@
                                     display: flex;
                                     justify-content: space-between;
                                     cursor: pointer;
+                                    @media screen and (max-width: 900px) {
+                                       padding: 8px 0;
+                                     }
                                     &:hover {
                                         background-color: #f5f5f5;
                                     }

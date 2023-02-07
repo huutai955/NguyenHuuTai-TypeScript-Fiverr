@@ -110,6 +110,12 @@
                     }
                 }
 
+                .signin {
+                    @media screen and (max-width: 920px) {
+                        padding-right: 20px !important;
+                    }
+                }
+
                 .becomeaseller {
                     @media screen and (max-width: 1220px) {
                         display: none;
