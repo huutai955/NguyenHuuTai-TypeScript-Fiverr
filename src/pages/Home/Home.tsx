@@ -12,7 +12,7 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -31,163 +31,14 @@ export interface CustomArrowProps {
 }
 
 
-const source = [
-  'https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/bsncmkwya3nectkensun',
-  'https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/plfa6gdjihpdvr10rchl',
-  'https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/rb8jtakrisiz0xtsffwi',
-  'https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/yja2ld5fnolhsixj3xxw'
-]
-
-const dataIntroduce = [{
-  id: 1,
-  image: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_560,dpr_1.0/v1/attachments/generic_asset/asset/42a6fd208670a0361b38bd72b47b9317-1599519173395/testimonial-video-still-haerfest.jpg',
-  ceoName: 'Tim and Dan Joo, Co-Founders',
-  imageBrand: 'https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/haerfest-logo-x2.03fa5c5.png',
-  title: `"When you want to create a business bigger than yourself, you need a lot of help. That's what Fiverr does."`
-},
-{
-  id: 2,
-  image: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_560,dpr_1.0/v1/attachments/generic_asset/asset/42a6fd208670a0361b38bd72b47b9317-1599519173396/testimonial-video-still-lavender.jpg',
-  ceoName: 'Brighid Gannon (DNP, PMHNP-BC), Co-Founder',
-  imageBrand: 'https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/lavender-logo-x2.89c5e2e.png',
-  title: `"We used Fiverr for SEO, our logo, website, copy, animated videos — literally everything. It was like working with a human right next to you versus being across the world."`
-},
-{
-  id: 3,
-  image: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_560,dpr_1.0/v1/attachments/generic_asset/asset/42a6fd208670a0361b38bd72b47b9317-1599519173414/testimonial-video-still-naadam.jpg',
-  ceoName: 'Caitlin Tormey, Chief Commercial Officer',
-  imageBrand: 'https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/naadam-logo-x2.0a3b198.png',
-  title: `"We've used Fiverr for Shopify web development, graphic design, and backend web development. Working with Fiverr makes my job a little easier every day."`
-},
-{
-  id: 4,
-  image: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_560,dpr_1.0/v1/attachments/generic_asset/asset/42a6fd208670a0361b38bd72b47b9317-1599519173399/testimonial-video-still-rooted.jpg',
-  ceoName: 'Kay Kim, Co-Founder',
-  imageBrand: 'https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/rooted-logo-x2.321d79d.png',
-  title: `"It's extremely exciting that Fiverr has freelancers from all over the world — it broadens the talent pool. One of the best things about Fiverr is that while we're sleeping, someone's working."`
-}
-
-]
-
-const dataTrusted = [
-  {
-    id: 1,
-    img: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/logo-design-2x.png',
-    slogan: 'Build your brand',
-    name: 'Logo Design'
-  },
-  {
-    id: 2,
-    img: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/ae11e2d45410b0eded7fba0e46b09dbd-1598561917003/wordpress-2x.png',
-    slogan: 'Customize your site',
-    name: 'WordPress'
-  },
-  {
-    id: 3,
-    img: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741669/voiceover-2x.png',
-    slogan: 'Share your message',
-    name: 'Voice Over'
-  },
-  {
-    id: 4,
-    img: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741663/animated-explainer-2x.png',
-    slogan: 'Engage your audience',
-    name: 'Video Explainer'
-  },
-  {
-    id: 5,
-    img: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741667/social-2x.png',
-    slogan: 'Reach more customers',
-    name: 'Social Media'
-  },
-  {
-    id: 6,
-    img: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741668/seo-2x.png',
-    slogan: 'Unlock growth online',
-    name: 'SEO'
-  },
-  {
-    id: 7,
-    img: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741664/illustration-2x.png',
-    slogan: 'Color your dreams',
-    name: 'Illustration'
-  },
-  {
-    id: 8,
-    img: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741674/translation-2x.png',
-    slogan: 'Go global',
-    name: 'Translation'
-  },
-  {
-    id: 9,
-    img: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741664/data-entry-2x.png',
-    slogan: 'Learn your business',
-    name: 'Data Entry'
-  },
-  {
-    id: 10,
-    img: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/book-covers-2x.png',
-    slogan: 'Showcase your story',
-    name: 'Book Covers'
-  },
-
-
-]
-
-
-const dataExplore = [
-  {
-    id: 1,
-    image: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/graphics-design.d32a2f8.svg",
-    name: 'Graphics & Design'
-  },
-  {
-    id: 2,
-    image: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/online-marketing.74e221b.svg",
-    name: 'Digital Marketing'
-  },
-  {
-    id: 3,
-    image: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/writing-translation.32ebe2e.svg",
-    name: 'Writing & Translation'
-  },
-  {
-    id: 4,
-    image: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/video-animation.f0d9d71.svg",
-    name: 'Video & Animation'
-  },
-  {
-    id: 5,
-    image: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/music-audio.320af20.svg",
-    name: 'Music & Audio'
-  },
-  {
-    id: 6,
-    image: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/programming.9362366.svg",
-    name: 'Programming & Tech'
-  },
-  {
-    id: 7,
-    image: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/business.bbdf319.svg",
-    name: 'Business'
-  },
-  {
-    id: 8,
-    image: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/lifestyle.745b575.svg",
-    name: 'Lifestyle'
-  },
-  {
-    id: 9,
-    image: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/data.718910f.svg",
-    name: 'Data'
-  }
-]
 export default function Home({ }: Props) {
   const [show, setShow] = useState<boolean>(false)
   const [showCompany, setShowCompany] = useState<boolean>(false)
   const [srcVideoCompany, setSrcVideoCompany] = useState<string>("")
   const [opacity, setOpacity] = useState<number>(1)
   const [height, setHeight] = useState<number>(1)
+  const [valueSearching, setValueSearching] = useState<string>("");
+  const navigate = useNavigate();
   const SamplePrevArrow = (props: CustomArrowProps) => {
     const { style, onClick, className } = props;
     return <button className={className} style={{ display: "block", position: 'absolute', zIndex: 2 }} onClick={onClick}>
@@ -198,6 +49,17 @@ export default function Home({ }: Props) {
   const changeHeight = (e: Event) => {
     setHeight(window.scrollY)
   }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let { value } = e.target;
+    setValueSearching(value);
+  }
+  
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    navigate(`/search/${valueSearching}`)
+  }
+
 
   useEffect(() => {
     if (height >= 100) {
@@ -316,10 +178,10 @@ export default function Home({ }: Props) {
           <div className="findingjob">
             <div className="findingjob__content">
               <h2>Find the perfect <span style={{ fontFamily: 'cursive' }}>freelance</span> services for your business</h2>
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div className="form-group group__input">
                   <i><AiOutlineSearch /></i>
-                  <input type="text" className='form-control' placeholder='Try "building mobile app' />
+                  <input type="text" className='form-control' placeholder='Try "building mobile app' onChange={handleChange}/>
                 </div>
 
                 <div className="form-group group__button">
@@ -506,3 +368,155 @@ export default function Home({ }: Props) {
     </div>
   )
 }
+
+const source = [
+  'https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/bsncmkwya3nectkensun',
+  'https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/plfa6gdjihpdvr10rchl',
+  'https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/rb8jtakrisiz0xtsffwi',
+  'https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/yja2ld5fnolhsixj3xxw'
+]
+
+const dataIntroduce = [{
+  id: 1,
+  image: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_560,dpr_1.0/v1/attachments/generic_asset/asset/42a6fd208670a0361b38bd72b47b9317-1599519173395/testimonial-video-still-haerfest.jpg',
+  ceoName: 'Tim and Dan Joo, Co-Founders',
+  imageBrand: 'https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/haerfest-logo-x2.03fa5c5.png',
+  title: `"When you want to create a business bigger than yourself, you need a lot of help. That's what Fiverr does."`
+},
+{
+  id: 2,
+  image: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_560,dpr_1.0/v1/attachments/generic_asset/asset/42a6fd208670a0361b38bd72b47b9317-1599519173396/testimonial-video-still-lavender.jpg',
+  ceoName: 'Brighid Gannon (DNP, PMHNP-BC), Co-Founder',
+  imageBrand: 'https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/lavender-logo-x2.89c5e2e.png',
+  title: `"We used Fiverr for SEO, our logo, website, copy, animated videos — literally everything. It was like working with a human right next to you versus being across the world."`
+},
+{
+  id: 3,
+  image: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_560,dpr_1.0/v1/attachments/generic_asset/asset/42a6fd208670a0361b38bd72b47b9317-1599519173414/testimonial-video-still-naadam.jpg',
+  ceoName: 'Caitlin Tormey, Chief Commercial Officer',
+  imageBrand: 'https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/naadam-logo-x2.0a3b198.png',
+  title: `"We've used Fiverr for Shopify web development, graphic design, and backend web development. Working with Fiverr makes my job a little easier every day."`
+},
+{
+  id: 4,
+  image: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_560,dpr_1.0/v1/attachments/generic_asset/asset/42a6fd208670a0361b38bd72b47b9317-1599519173399/testimonial-video-still-rooted.jpg',
+  ceoName: 'Kay Kim, Co-Founder',
+  imageBrand: 'https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/rooted-logo-x2.321d79d.png',
+  title: `"It's extremely exciting that Fiverr has freelancers from all over the world — it broadens the talent pool. One of the best things about Fiverr is that while we're sleeping, someone's working."`
+}
+
+]
+
+const dataTrusted = [
+  {
+    id: 1,
+    img: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/logo-design-2x.png',
+    slogan: 'Build your brand',
+    name: 'Logo Design'
+  },
+  {
+    id: 2,
+    img: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/ae11e2d45410b0eded7fba0e46b09dbd-1598561917003/wordpress-2x.png',
+    slogan: 'Customize your site',
+    name: 'WordPress'
+  },
+  {
+    id: 3,
+    img: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741669/voiceover-2x.png',
+    slogan: 'Share your message',
+    name: 'Voice Over'
+  },
+  {
+    id: 4,
+    img: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741663/animated-explainer-2x.png',
+    slogan: 'Engage your audience',
+    name: 'Video Explainer'
+  },
+  {
+    id: 5,
+    img: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741667/social-2x.png',
+    slogan: 'Reach more customers',
+    name: 'Social Media'
+  },
+  {
+    id: 6,
+    img: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741668/seo-2x.png',
+    slogan: 'Unlock growth online',
+    name: 'SEO'
+  },
+  {
+    id: 7,
+    img: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741664/illustration-2x.png',
+    slogan: 'Color your dreams',
+    name: 'Illustration'
+  },
+  {
+    id: 8,
+    img: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741674/translation-2x.png',
+    slogan: 'Go global',
+    name: 'Translation'
+  },
+  {
+    id: 9,
+    img: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741664/data-entry-2x.png',
+    slogan: 'Learn your business',
+    name: 'Data Entry'
+  },
+  {
+    id: 10,
+    img: 'https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/book-covers-2x.png',
+    slogan: 'Showcase your story',
+    name: 'Book Covers'
+  },
+
+
+]
+
+
+const dataExplore = [
+  {
+    id: 1,
+    image: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/graphics-design.d32a2f8.svg",
+    name: 'Graphics & Design'
+  },
+  {
+    id: 2,
+    image: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/online-marketing.74e221b.svg",
+    name: 'Digital Marketing'
+  },
+  {
+    id: 3,
+    image: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/writing-translation.32ebe2e.svg",
+    name: 'Writing & Translation'
+  },
+  {
+    id: 4,
+    image: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/video-animation.f0d9d71.svg",
+    name: 'Video & Animation'
+  },
+  {
+    id: 5,
+    image: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/music-audio.320af20.svg",
+    name: 'Music & Audio'
+  },
+  {
+    id: 6,
+    image: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/programming.9362366.svg",
+    name: 'Programming & Tech'
+  },
+  {
+    id: 7,
+    image: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/business.bbdf319.svg",
+    name: 'Business'
+  },
+  {
+    id: 8,
+    image: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/lifestyle.745b575.svg",
+    name: 'Lifestyle'
+  },
+  {
+    id: 9,
+    image: "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/data.718910f.svg",
+    name: 'Data'
+  }
+]

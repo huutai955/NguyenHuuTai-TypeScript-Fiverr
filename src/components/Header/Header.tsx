@@ -101,9 +101,23 @@ export default function Header({ }: Props) {
     slidesToScroll: 1,
     responsive: [
       {
+        breakpoint: 1077,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 2,
+        }
+      },
+      {
         breakpoint: 705,
         settings: {
           slidesToShow: 4,
+          slidesToScroll: 2,
+        }
+      },
+      {
+        breakpoint: 570,
+        settings: {
+          slidesToShow: 2,
           slidesToScroll: 2,
         }
       }

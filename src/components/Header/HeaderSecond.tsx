@@ -94,6 +94,13 @@ export default function HeaderSecond({ }: Props) {
           slidesToShow: 4,
           slidesToScroll: 2,
         }
+      },
+      {
+        breakpoint: 570,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        }
       }
     ]
   };
