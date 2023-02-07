@@ -76,7 +76,7 @@ export default function SignUp({ }: Props) {
                         <p style={{ color: 'red' }}>{formik.errors.email}</p>
                     </FormControl>
                     <FormControl style={{ marginBottom: 30 }}>
-                        <TextField className='w-100' label="Password" variant="outlined" name='password' onChange={formik.handleChange} />
+                        <TextField className='w-100' label="Password" type={'password'} variant="outlined" name='password' onChange={formik.handleChange} />
                         <p style={{ color: 'red' }}>{formik.errors.password}</p>
                     </FormControl>
                     <FormControl style={{ marginBottom: 30 }}>

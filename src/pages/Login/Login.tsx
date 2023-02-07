@@ -51,7 +51,7 @@ export default function Login({ }: Props) {
                         <p style={{ color: 'red' }}>{formik.errors.email}</p>
                     </div>
                     <div className="form-group">
-                        <TextField className='w-100' label="Password" variant="outlined" name='password' onChange={formik.handleChange} />
+                        <TextField className='w-100' type={'password'} label="Password" variant="outlined" name='password' onChange={formik.handleChange} />
                         <p style={{ color: 'red' }}>{formik.errors.password}</p>
                     </div>
 
