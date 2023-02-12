@@ -62,38 +62,28 @@ export default function UserInfo({ }: Props) {
 
   useEffect(() => {
     const value = {
-      id: userInfor.id,
-      name: userInfor.name,
-      email: userInfor.email,
-      phone: userInfor.phone,
-      birthday: userInfor.birthday,
-      gender: true,
-      role: "string",
-      skill: arrSkill,
-      certification: userInfor.certification
+      ...userInfor,
+      skill: arrSkill
     }
-    const action = updateUserAPI(value, params.result);
-    dispatch(action);
+
+    if (arrSkill.length !== userInfor.skill.length) {
+      const action = updateUserAPI(value, params.result);
+      dispatch(action);
+    }
   }, [arrSkill])
 
 
   useEffect(() => {
     const value = {
-      id: userInfor.id,
-      name: userInfor.name,
-      email: userInfor.email,
-      phone: userInfor.phone,
-      birthday: userInfor.birthday,
-      gender: true,
-      role: "string",
-      skill: userInfor.skill,
+      ...userInfor,
       certification: arrCertification
     }
-    const action = updateUserAPI(value, params.result);
+    if (arrCertification.length !== userInfor.certification.length) {
+      const action = updateUserAPI(value, params.result);
     dispatch(action)
+    }
   }, [arrCertification])
 
-  console.log(arrSkill);
 
 
   useEffect(() => {

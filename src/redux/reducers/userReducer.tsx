@@ -147,7 +147,6 @@ export const updateUserAPI = (infor: UserInfor, id: string | undefined) => {
       const result: any = await http.get(`/api/users/${id}`);
       const action = updateUserAction(result.data.content);
       dispatch(action);
-      console.log(result);
       const action2 = getUserInforAPI(id);
       await dispatch(action2)
     } catch (err) {
@@ -162,6 +161,7 @@ export const getUserInforAPI = (id: string | undefined) => {
       const result: any = await http.get(`/api/users/${id}`);
       const action = updateUserAction(result.data.content);
       dispatch(action);
+      console.log(result)
       settings.setStorageJson(USER_PROFILE, result.data.content)
     } catch (err) {
       console.log(err);
