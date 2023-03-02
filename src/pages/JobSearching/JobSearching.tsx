@@ -34,6 +34,7 @@ export default function JobSearching({ }: Props) {
         <h2 className='pb-5'>Result for {param.result}</h2>
         <div className="row">
           <Product />
+          Hello
         </div>
       </div>
     </div>
